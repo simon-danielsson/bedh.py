@@ -41,6 +41,7 @@ https://www.simondanielsson.se/
 
 """
 
+import os
 import sys
 from pathlib import Path
 
@@ -129,6 +130,8 @@ def main():
     dest_path = derive_dest_path(src_path)
 
     process_hex(src_path, dest_path)
+    print("(bedh.py) generated:")
+    print(f"{dest_path}")
 
 if __name__ == "__main__":
     main()
