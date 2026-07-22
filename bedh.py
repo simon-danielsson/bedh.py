@@ -46,15 +46,12 @@ from pathlib import Path
 
 ROW_WIDTH = 11
 
-def str_to_hex(content):
-    for c in content:
-        b = c.encode("utf-8")
-        h = b.hex()
-        yield f"0x{h}"
+def read_file(path: Path) -> bytes:
+    return path.read_bytes()
 
-def read_file(path):
-    with open(path, "r") as file:
-        return file.read()
+def bytes_to_hex(data: bytes):
+    for b in data:
+        yield f"0x{b:02x}"
 
 def format_filename_to_varname(filename: str, len: bool) -> str:
     output = ""
@@ -73,7 +70,7 @@ def process_hex(src_path: Path, dest_path: Path):
     content = read_file(src_path)
 
     h: list[str] = []
-    for num in str_to_hex(content):
+    for num in bytes_to_hex(content):
         h.append(num)
 
     varname_array = format_filename_to_varname(src_path.name, False)
