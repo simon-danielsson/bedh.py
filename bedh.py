@@ -80,13 +80,11 @@ def process_hex(src_path: Path, dest_path: Path):
         file.write("unsigned char ")
         file.write(f"{varname_array}")
         file.write("[] = {\n")
-        row_amt: int = 0
-        for hex in h:
-            file.write(f"{hex},")
-            if row_amt == ROW_WIDTH:
-                row_amt = 0
+
+        for i, hexval in enumerate(h, 1):
+            file.write(f"{hexval}, ")
+            if i % ROW_WIDTH == 0:
                 file.write("\n")
-            row_amt += 1
 
         file.write("\n};\n")
         file.write(f"unsigned int {varname_len} = {len(h)};")
