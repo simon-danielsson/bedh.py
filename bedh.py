@@ -54,17 +54,23 @@ def bytes_to_hex(data: bytes):
         yield f"0x{b:02x}"
 
 def format_filename_to_varname(filename: str, len: bool) -> str:
-    output = ""
+    output = []
 
     for c in filename:
-        if c.isalpha():
-            output += c
-        elif c.isspace() or c in "-.":
-            output += "_"
+        if c.isalnum():
+            output.append(c)
+        elif c in " -.":
+            output.append("_")
+
+    name = "".join(output).strip("_")
+
+    if name and name[0].isdigit():
+        name = "_" + name
 
     if len:
-        output += "_len"
-    return output
+        name += "_len"
+
+    return name
 
 def process_hex(src_path: Path, dest_path: Path):
     content = read_file(src_path)
