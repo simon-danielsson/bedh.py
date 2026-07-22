@@ -15,7 +15,7 @@
   
 ## Info
   
-A small utility that converts a UTF-8 input-file into a valid C header (.h) file containing the input-file's contents as an unsigned char array and a corresponding length variable.
+A small utility that converts an UTF-8 input-file into a valid C header (.h) file containing the input-file's contents as an unsigned char array and a corresponding length variable.
   
 Look inside the [tests](./tests) directory for a showcase.
   

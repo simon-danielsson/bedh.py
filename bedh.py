@@ -25,7 +25,7 @@ Requirements: Python 3.10+
 
 bedh.py
 
-A small utility that converts a UTF-8 input-file into a valid
+A small utility that converts an UTF-8 input-file into a valid
 C header (.h) file containing the input-file's contents as an unsigned
 char array and a corresponding length variable.
 
@@ -41,7 +41,6 @@ https://www.simondanielsson.se/
 
 """
 
-import os
 import sys
 from pathlib import Path
 
@@ -103,7 +102,7 @@ def print_usage() -> None:
 
 def process_args() -> Path:
     if len(sys.argv) <= 1:
-        print("No arguments were provided!")
+        print("Error: no arguments were provided")
         print_usage()
     for a in sys.argv[1:]:
         match a:
@@ -114,7 +113,7 @@ def process_args() -> Path:
                 if src_path.exists():
                     return src_path
                 else:
-                    print("Provided path does not exist!")
+                    print("Error: provided path does not exist")
                     print_usage()
     print_usage()
     sys.exit(0)
