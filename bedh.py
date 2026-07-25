@@ -21,9 +21,8 @@
 # THE SOFTWARE.
 
 """
-Requirements: Python 3.10+
 
-bedh.py
+- bedh.py -
 
 A small utility that converts an UTF-8 input-file into a valid
 C header (.h) file containing the input-file's contents as an unsigned
@@ -34,10 +33,12 @@ Usage:
 $ ./bedh.py input.txt
 ```
 
-Author: Simon Danielsson
+Built by Simon Danielsson
 
-https://github.com/simon-danielsson/bedh.py
-https://www.simondanielsson.se/
+Source: https://github.com/simon-danielsson/bedh.py
+Author: https://www.simondanielsson.se/
+
+Requirements: Python 3.10+
 
 """
 
